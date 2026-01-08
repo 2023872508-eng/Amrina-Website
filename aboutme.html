@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Me</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Poppins", "Times New Roman", serif;
+    background: lightyellow;
+    color: #333;
+}
+
+.header {
+    background: lightpink;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: darkmagenta;
+}
+
+.datetime {
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+nav {
+    background: #222;
+    padding: 10px 0;
+    text-align: center;
+}
+nav a {
+    color: hotpink;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+nav a:hover {
+    color: limegreen;
+}
+
+/* ABOUT CONTAINER */
+.about-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* VIDEO */
+.video-section {
+    margin-top: 40px;
+}
+.video-section video {
+    width: 80%;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+}
+
+/* BIODATA TABLE */
+.biodata {
+    margin-top: 40px;
+    display: inline-block;
+    text-align: left;
+}
+.biodata table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 16px;
+}
+.biodata th, .biodata td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.biodata th {
+    width: 150px;
+    font-weight: 700;
+}
+
+/* AUDIO */
+audio {
+    display: block;
+    margin: 40px auto 60px;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Amrina's Personal Website
+    <img src="animation/bee.gif" alt="Gif of cat" style="height:80px; width: 85px;">
+    <div class="datetime" id="datetime"></div>
+</div>
+
+<nav>
+    <a href="index.html">🏡 Home</a>
+    <a href="aboutme.html">👩‍🎓 About Me</a>
+    <a href="experience.html">💼 Experience</a>
+    <a href="education.html">📚 Education</a>
+    <a href="family.html">👨‍👩‍👦‍👦 Family</a>
+    <a href="friends.html">🫂 Friends</a>
+    <a href="favourites.html">🩷 Favourites</a>
+    
+</nav>
+
+<div class="about-container">
+
+    <!-- VIDEO -->
+    <div class="video-section">
+        <video autoplay loop muted playsinline controls>
+            <source src="video/pantai.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- BIODATA TABLE (Molek) -->
+<div class="biodata">
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <td>Nur Amrina Rasyada Binti Ismail</td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td>22/11/2005</td>
+        </tr>
+        <tr>
+            <th>Hometown</th>
+            <td>Kuala Terengganu, Terengganu</td>
+        </tr>
+        <tr>
+            <th>Education</th>
+            <td>Diploma in Information Management, UiTM Machang</td>
+        </tr>
+        <tr>
+            <th>Hobbies</th>
+            <td>Listening to music, hiking, spending time with loved ones</td>
+        </tr>
+        <tr>
+            <th>Goals</th>
+            <td>To become a successful Software Engineer and improve technology skills</td>
+        </tr>
+    </table>
+</div>
+
+<style>
+.biodata table {
+    width: 100%;
+    max-width: 650px;
+    margin: 40px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff4f8;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.biodata th, .biodata td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f1c4d0;
+}
+
+.biodata th {
+    background: #f9d6e0;
+    font-weight: 700;
+    width: 180px;
+}
+
+.biodata tr:hover {
+    background: #ffe6f0;
+    transition: 0.3s;
+}
+</style>
+
+    <!-- AUDIO -->
+    <audio controls autoplay loop>
+        <source src="audio/nadhif.mp3" type="audio/mp3">
+    </audio>
+
+</div>
+
+<!-- DATE & TIME SCRIPT -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    const date = now.toLocaleDateString('en-MY', options);
+    const time = now.toLocaleTimeString();
+    document.getElementById('datetime').innerHTML =
+        "🕒 " + date + " | " + time;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+<footer>
+    © 2025 This Website is for educational purposes only |
+    Nur Amrina Rasyada Binti Ismail
+</footer>
+
+</body>
+</html>

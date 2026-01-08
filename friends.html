@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Friends</title>
+
+<style>
+body body 
+      {
+        margin: 0;
+        font-family: "Poppins", "Times New Roman", serif;
+        background: lightyellow;
+        color: #333;
+    }
+
+  .header {
+        background: lightpink;
+        padding: 30px 0;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: darkmagenta;
+    }
+
+    .datetime {
+        font-size: 14px;
+        margin-top: 8px;
+        font-weight: 400;
+    }
+
+    nav {
+        background: #222;
+        padding: 10px 0;
+        text-align: center;
+    }
+    nav a {
+        color: hotpink;
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    nav a:hover {
+        color: limegreen;
+    }
+
+    footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+} 
+
+
+   
+    /* ABOUT SECTION */
+    .about-section {
+        padding: 40px;
+        text-align: center;
+    }
+
+/* ===== SECTION ===== */
+.section{
+    max-width:1300px;
+    margin:30px auto;
+}
+
+.section-header{
+    background:#6a1b9a;
+    color:white;
+    padding:18px 25px;
+    font-size:22px;
+    font-weight:700;
+    border-radius:14px;
+    cursor:pointer;
+    margin:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.section-header::after{
+    content:"▼";
+    transition:transform 0.4s ease;
+}
+
+.section-header.active::after{
+    transform:rotate(-180deg);
+}
+
+.section-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.6s ease;
+}
+
+/* ===== POLAROID GRID ===== */
+.polaroid-container{
+    max-width:1200px;
+    margin:20px auto 60px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:18px;
+    padding:20px;
+}
+
+.polaroid{
+    background:white;
+    padding:10px 10px 28px;
+    border-radius:6px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    cursor:pointer;
+    transition:transform 0.3s;
+}
+
+.polaroid:hover{
+    transform:scale(1.05);
+}
+
+.polaroid img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:4px;
+}
+
+.name{
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+    font-weight:600;
+    color:#444;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+.close{
+    position:absolute;
+    top:25px;
+    right:40px;
+    font-size:45px;
+    color:white;
+    cursor:pointer;
+}
+
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:60px;
+    color:white;
+    cursor:pointer;
+}
+
+.prev{ left:30px; }
+.next{ right:30px; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .polaroid-container{ grid-template-columns:repeat(3,1fr); }
+}
+
+@media(max-width:500px){
+    .polaroid-container{ grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="header">
+    Amrina's Personal Website
+    <div class="datetime" id="datetime"></div>
+</div>
+
+<nav>
+    <a href="index.html">🏡 Home</a>
+    <a href="aboutme.html">👩‍🎓 About Me</a>
+    <a href="experience.html">💼 Experience</a>
+    <a href="education.html">📚 Education</a>
+    <a href="family.html">👨‍👩‍👦‍👦 Family</a>
+    <a href="friends.html">🫂 Friends</a>
+    <a href="favourites.html">🩷 Favourites</a>
+</nav>
+
+
+<div class="section">
+
+    <div class="section-header">highschool friends</div>
+    <div class="section-content">
+        <div class="polaroid-container">
+            <div class="polaroid"><img src="image/abeycapik.jpg"><div class="name">mel,ecah,meyna,abby</div></div>
+            <div class="polaroid"><img src="image/education1.jpeg"><div class="name">classmate</div></div>
+            <div class="polaroid"><img src="image/education2.jpeg"><div class="name">ifaa&miaa</div></div>
+            <div class="polaroid"><img src="image/education5.jpg"><div class="name">schoolmates</div></div>
+            <div class="polaroid"><img src="image/isyabillah.jpg"><div class="name">isya&billah</div></div>
+            <div class="polaroid"><img src="image/myvi1.jpg"><div class="name">meyna&abby</div></div>
+            <div class="polaroid"><img src="image/nya1.jpg"><div class="name">miaa</div></div>
+            <div class="polaroid"><img src="image/trio.jpg"><div class="name">ifaa&miaa</div></div>
+            <div class="polaroid"><img src="image/abby.jpg"><div class="name">abby</div></div>
+            <div class="polaroid"><img src="image/random.jpg"><div class="name">schoolmates</div></div>
+            <div class="polaroid"><img src="image/classmates1.jpg"><div class="name">isya,alia&billah</div></div>
+            <div class="polaroid"><img src="image/fourth.jpg"><div class="name">ifaa,fana&miaa</div></div>
+        </div>
+    </div>
+
+     <div class="section-header">diploma friends</div>
+    <div class="section-content">
+        <div class="polaroid-container">
+           <div class="polaroid"><img src="image/lla2.jpg"><div class="name">lla</div></div>
+            <div class="polaroid"><img src="image/tyn.jpg"><div class="name">tyn</div></div>
+            <div class="polaroid"><img src="image/faj.jpg"><div class="name">faj</div></div>
+            <div class="polaroid"><img src="image/safiayana.jpg"><div class="name">safia&yana</div></div>
+            <div class="polaroid"><img src="image/present1.jpg"><div class="name">adawi,hasya&adawiyah</div></div>
+            <div class="polaroid"><img src="image/kitakitaje.jpg"><div class="name">faj,lla,tyn</div></div>
+            <div class="polaroid"><img src="image/kacip1.jpg"><div class="name">dini,adawiyah,aya&yin</div></div>
+            <div class="polaroid"><img src="image/safia1.jpg"><div class="name">safiaa</div></div>
+            <div class="polaroid"><img src="image/education3.jpeg"><div class="name">classmates</div></div>
+            <div class="polaroid"><img src="image/madamsoff.jpg"><div class="name">madamsoffiya</div></div>
+            <div class="polaroid"><img src="image/kacip2.jpg"><div class="name">girly</div></div>
+            <div class="polaroid"><img src="image/steamboat.jpg"><div class="name">girls</div></div>
+            <div class="polaroid"><img src="image/housemate.jpg"><div class="name">housemate</div></div>
+            <div class="polaroid"><img src="image/ganu.jpg"><div class="name">abby&bella</div></div>
+            <div class="polaroid"><img src="image/gadisku.jpg"><div class="name">old housemate</div></div>
+            <div class="polaroid"><img src="image/lla3.jpg"><div class="name">lla</div></div>
+            <div class="polaroid"><img src="image/yana.jpg"><div class="name">yana</div></div>
+            <div class="polaroid"><img src="image/kitakitaje2.jpg"><div class="name">faj,lla,tyn</div></div>
+        
+        </div>
+    </div>
+
+ <div class="section-header">outdoor recreation club friends</div>
+    <div class="section-content">
+        <div class="polaroid-container">
+           <div class="polaroid"><img src="image/6karinakpoors.jpg"><div class="name">6karinakapoors</div></div>
+            <div class="polaroid"><img src="image/ann.jpg"><div class="name">ann</div></div>
+            <div class="polaroid"><img src="image/camelia.jpg"><div class="name">camelia</div></div>
+            <div class="polaroid"><img src="image/damiaa.jpg"><div class="name">damiaa</div></div>
+            <div class="polaroid"><img src="image/education4.jpeg"><div class="name">exco</div></div>
+            <div class="polaroid"><img src="image/excomulti.jpg"><div class="name">excomulti</div></div>
+            <div class="polaroid"><img src="image/nana.jpg"><div class="name">nana</div></div>
+            <div class="polaroid"><img src="image/mt.jpg"><div class="name">mt</div></div>
+            <div class="polaroid"><img src="image/syasya.jpg"><div class="name">syasya</div></div>
+            <div class="polaroid"><img src="image/mt.jpg"><div class="name">mt</div></div>
+            <div class="polaroid"><img src="image/orc4.jpg"><div class="name">girls</div></div>
+            <div class="polaroid"><img src="image/orcagm.jpg"><div class="name">orc</div></div>
+            <div class="polaroid"><img src="image/rising.jpg"><div class="name">ajk</div></div>
+            <div class="polaroid"><img src="image/mt1.jpg"><div class="name">girly</div></div>
+            <div class="polaroid"><img src="image/lwbn.jpg"><div class="name">old mt</div></div>
+            <div class="polaroid"><img src="image/booth.jpg"><div class="name">6karinakapoors</div></div>
+            <div class="polaroid"><img src="image/eskep.jpg"><div class="name">ajk eskep</div></div>
+            <div class="polaroid"><img src="image/agm.jpg"><div class="name">kroni</div></div>
+        
+        </div>
+    </div>
+
+
+ <div class="section-header">online friends</div>
+    <div class="section-content">
+        <div class="polaroid-container">
+           <div class="polaroid"><img src="image/ain.jpg"><div class="name">ain</div></div>
+            <div class="polaroid"><img src="image/4ever.jpg"><div class="name">ikha,aliah,nurin</div></div>
+            <div class="polaroid"><img src="image/quadraple.jpg"><div class="name">quadraple</div></div>
+            <div class="polaroid"><img src="image/adik.jpg"><div class="name">dhamiriy&ammar</div></div>
+            <div class="polaroid"><img src="image/nurin.jpg"><div class="name">nurin</div></div>
+            <div class="polaroid"><img src="image/triokl.jpg"><div class="name">sarah&caa</div></div>
+            <div class="polaroid"><img src="image/aliah.jpg"><div class="name">aliah</div></div>
+            <div class="polaroid"><img src="image/ainnya.jpg"><div class="name">ain&miaa</div></div>
+            <div class="polaroid"><img src="image/ikha.jpg"><div class="name">ikha</div></div>
+            <div class="polaroid"><img src="image/adikberadik.jpg"><div class="name">cuu,cii,&lla</div></div>
+            <div class="polaroid"><img src="image/quadraple1.jpg"><div class="name">quadraple</div></div>
+            <div class="polaroid"><img src="image/mamaaliah1.jpg"><div class="name">girls</div></div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <span class="nav prev">&#10094;</span>
+    <img id="lightbox-img">
+    <span class="nav next">&#10095;</span>
+</div>
+
+<script>
+/* ACCORDION */
+document.querySelectorAll(".section-header").forEach(header=>{
+    header.onclick = ()=>{
+        const content = header.nextElementSibling;
+        const open = header.classList.contains("active");
+
+        document.querySelectorAll(".section-content").forEach(c=>{
+            c.style.maxHeight = null;
+        });
+        document.querySelectorAll(".section-header").forEach(h=>{
+            h.classList.remove("active");
+        });
+
+        if(!open){
+            header.classList.add("active");
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+});
+
+/* LIGHTBOX */
+const images = document.querySelectorAll(".polaroid img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let index = 0;
+const imgArr = Array.from(images);
+
+images.forEach((img,i)=>{
+    img.onclick = ()=>{
+        index = i;
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    }
+});
+
+nextBtn.onclick = ()=>{
+    index = (index + 1) % imgArr.length;
+    lightboxImg.src = imgArr[index].src;
+};
+
+prevBtn.onclick = ()=>{
+    index = (index - 1 + imgArr.length) % imgArr.length;
+    lightboxImg.src = imgArr[index].src;
+};
+
+closeBtn.onclick = ()=> lightbox.style.display = "none";
+lightbox.onclick = e=>{
+    if(e.target === lightbox) lightbox.style.display = "none";
+};
+</script>
+
+<footer>
+    © 2025 This Website is for educational purposes only |
+    Nur Amrina Rasyada Binti Ismail
+</footer>
+
+
+
+</body>
+</html>

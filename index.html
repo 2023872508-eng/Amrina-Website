@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About Me</title>
+
+<style>
+body{
+    margin: 0;
+    font-family: "Poppins", "Times New Roman", serif;
+    background: lightyellow;
+    color: #333;
+}
+
+/* HEADER */
+.header {
+    background: lightpink;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: darkmagenta;
+}
+
+.datetime {
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+/* NAVBAR */
+nav {
+    background: #222;
+    padding: 10px 0;
+    text-align: center;
+}
+nav a {
+    color: hotpink;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+nav a:hover {
+    color: limegreen;
+}
+
+
+
+/* ABOUT SECTION */
+.about-section {
+    padding: 60px 40px 40px;
+    text-align: center;
+}
+
+/* PROFILE PIC */
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 0 auto 30px;
+    display: block;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+    margin-bottom: 20px;
+}
+.social-icons a {
+    font-size: 22px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.social-icons a:hover {
+    opacity: 0.6;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+
+/* FALLING EMOJI */
+.falling-emoji span {
+    position: fixed;
+    top: -10%;
+    font-size: 26px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+    z-index: 999;
+}
+.falling-emoji span:nth-child(1) { left: 15%; animation-duration: 7s; }
+.falling-emoji span:nth-child(2) { left: 35%; animation-duration: 9s; }
+.falling-emoji span:nth-child(3) { left: 55%; animation-duration: 8s; }
+.falling-emoji span:nth-child(4) { left: 75%; animation-duration: 10s; }
+.falling-emoji span:nth-child(5) { left: 90%; animation-duration: 7.5s; }
+
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(120vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Amrina's Personal Website
+    <div class="datetime" id="datetime"></div>
+</div>
+
+<nav>
+    <a href="index.html">🏡 Home</a>
+    <a href="aboutme.html">👩‍🎓 About Me</a>
+    <a href="experience.html">💼 Experience</a>
+    <a href="education.html">📚 Education</a>
+    <a href="family.html">👨‍👩‍👦‍👦 Family</a>
+    <a href="friends.html">🫂 Friends</a>
+    <a href="favourites.html">🩷 Favourites</a>
+</nav>
+
+<div class="about-section">
+    <h2>ALL ABOUT ME</h2>
+    <h3>HI! WELCOME TO MY PERSONAL WEBSITE</h3>
+
+    <img src="image/mina.jpg" class="profile-pic">
+
+    <div class="social-icons">
+        <a href="https://www.instagram.com/minaasyaa._" target="_blank" title="Instagram">📸</a>
+        <a href="https://www.tiktok.com/@minaaasyaaa" target="_blank" title="Tiktok">🎵</a>
+    </div>
+
+    <p><em>Nur Amrina Rasyada Binti Ismail</em></p>
+    <p><em>A glimpse into my journey, interests, and personal growth</em></p>
+
+    
+<!-- FALLING EMOJI -->
+<div class="falling-emoji">
+    <span>💚</span>
+    <span>🩷</span>
+    <span>🍓</span>
+    <span>🩷</span>
+    <span>💚</span>
+</div>
+
+<!-- DATE & TIME SCRIPT -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+    const date = now.toLocaleDateString('en-MY', options);
+    const time = now.toLocaleTimeString();
+    document.getElementById('datetime').innerHTML = "🕒 " + date + " | " + time;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+<script>
+window.onload = function(){
+    alert("Welcome to Amrina website! Enjoy exploring my personal journey");
+};
+</script>
+<footer>
+    © 2025 This Website is for educational purposes only |
+    Nur Amrina Rasyada Binti Ismail
+</footer>
+
+</body>
+</html>

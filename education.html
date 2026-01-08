@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Education</title>
+
+<style>
+body{ 
+        margin: 0;
+        font-family: "Poppins", "Times New Roman", serif;
+        background: lightyellow;
+        color: #333;
+    }
+
+.header {
+    background: lightpink;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: darkmagenta;
+}
+
+.datetime {
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: 400;
+}
+
+nav {
+    background: #222;
+    padding: 10px 0;
+    text-align: center;
+}
+nav a {
+    color: hotpink;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+nav a:hover { color: limegreen; }
+
+/* POLAROID EDUCATION */
+.edu-wrapper{
+    display:flex;
+    justify-content:center;
+}
+.edu-container{
+    display:flex;
+    gap:30px;
+    padding:40px 20px 60px;
+    flex-wrap:wrap;
+}
+
+.edu-polaroid{
+    background:white;
+    width:200px;
+    padding:12px 12px 45px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    cursor:pointer;
+    transition:0.4s;
+    text-align:center;
+}
+.edu-polaroid:hover{
+    transform:scale(1.07);
+}
+.edu-polaroid img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:12px;
+}
+.edu-text{
+    margin-top:12px;
+}
+.school-name{
+    font-weight:700;
+    font-size:16px;
+}
+.school-year{
+    font-size:14px;
+    color:gray;
+}
+
+/* POPUP LIGHTBOX */
+.edu-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+.edu-overlay img{
+    width:320px;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 30px hotpink;
+}
+.close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+.nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+}
+.left{ left:40px; }
+.right{ right:40px; }
+
+/* MAPS EDUCATION */
+.edu-map-section{
+    margin:80px auto;
+    text-align:center;
+}
+.map-title{
+    font-size:28px;
+    margin-bottom:40px;
+}
+.map-box{
+    width:80%;
+    max-width:800px;
+    margin:0 auto 60px;
+}
+.map-box iframe{
+    width:100%;
+    height:250px;
+    border-radius:20px;
+    border:0;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+.map-caption{
+    margin-top:12px;
+    font-size:16px;
+    color:#555;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+} 
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Amrina's Personal Website
+    <div class="datetime" id="datetime"></div>
+</div>
+
+<nav>
+    <a href="index.html">🏡 Home</a>
+    <a href="aboutme.html">👩‍🎓 About Me</a>
+    <a href="experience.html">💼 Experience</a>
+    <a href="education.html">📚 Education</a>
+    <a href="family.html">👨‍👩‍👦‍👦 Family</a>
+    <a href="friends.html">🫂 Friends</a>
+    <a href="favourites.html">🩷 Favourites</a>
+
+</nav>
+
+<!-- POLAROID EDUCATION -->
+<div class="edu-wrapper">
+<div class="edu-container">
+
+    <div class="edu-polaroid" onclick="openEdu('school1')">
+        <img src="image/pasti.jpg">
+        <div class="edu-text">
+            <div class="school-name">Pasti Al-Fatonah</div>
+            <div class="school-year">2010 – 2011</div>
+        </div>
+    </div>
+
+    <div class="edu-polaroid" onclick="openEdu('school2')">
+        <img src="image/sktb.jpg">
+        <div class="edu-text">
+            <div class="school-name">Sekolah Rendah Tengku Bariah</div>
+            <div class="school-year">2012 – 2017</div>
+        </div>
+    </div>
+
+    <div class="edu-polaroid" onclick="openEdu('school3')">
+        <img src="image/smktb.webp">
+        <div class="edu-text">
+            <div class="school-name">Sekolah Menengah Kebangsaan Tengku Bariah</div>
+            <div class="school-year">2018 – 2022</div>
+        </div>
+    </div>
+
+    <div class="edu-polaroid" onclick="openEdu('school4')">
+        <img src="image/uitm.png">
+        <div class="edu-text">
+            <div class="school-name">UiTM Machang</div>
+            <div class="school-year">2023-2026</div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<!-- POPUP -->
+<div class="edu-overlay" id="eduBox">
+    <span class="close" onclick="closeEdu()">×</span>
+    <span class="nav left" onclick="prevEdu()">❮</span>
+    <img id="eduImg">
+    <span class="nav right" onclick="nextEdu()">❯</span>
+</div>
+
+<!-- MAPS -->
+<div class="edu-map-section">
+    <h2 class="map-title">My Education Journey 📍</h2>
+
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=Pasti%20Al-Fatonah&output=embed"></iframe>
+        <p class="map-caption">Pasti Al-Fatonah • 2010 – 2011</p>
+    </div>
+
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=Sekolah%20Rendah%20Tengku%20Bariah&output=embed"></iframe>
+        <p class="map-caption">Sekolah Rendah Tengku Bariah • 2012 – 2017</p>
+    </div>
+
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=Sekolah%20Menengah%20Kebangsaan%20Tengku%20Bariah&output=embed"></iframe>
+        <p class="map-caption">Sekolah Menengah Kebangsaan Tengku Bariah • 2018 – 2022</p>
+    </div>
+
+    <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=UiTM%20Machang&output=embed"></iframe>
+        <p class="map-caption">UiTM Machang • 2023 – 2026</p>
+    </div>
+</div>
+
+<script>
+// Lightbox Slide
+let eduImages = [];
+let eduIndex = 0;
+
+const eduData = {
+    school1:["image/pasti1.jpg","image/pasti2.jpg"],
+    school2:["image/sktb1.jpg","image/sktb2.jpg"],
+    school3:["image/smktb1.jpg","image/smktb2.jpg"],
+    school4:["image/uitm1.jpg","image/uitm2.jpg"]
+};
+
+function openEdu(key){
+    eduImages = eduData[key];
+    eduIndex = 0;
+    document.getElementById("eduImg").src = eduImages[eduIndex];
+    document.getElementById("eduBox").style.display="flex";
+}
+
+function nextEdu(){
+    eduIndex = (eduIndex + 1) % eduImages.length;
+    document.getElementById("eduImg").src = eduImages[eduIndex];
+}
+
+function prevEdu(){
+    eduIndex = (eduIndex - 1 + eduImages.length) % eduImages.length;
+    document.getElementById("eduImg").src = eduImages[eduIndex];
+}
+
+function closeEdu(){
+    document.getElementById("eduBox").style.display="none";
+}
+
+// DATE & TIME SCRIPT
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = now.toLocaleDateString('en-MY', options);
+    const time = now.toLocaleTimeString();
+    document.getElementById('datetime').innerHTML = "🕒 " + date + " | " + time;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+<footer>
+    © 2025 This Website is for educational purposes only | Nur Amrina Rasyada Binti Ismail
+</footer>
+
+</body>
+</html>

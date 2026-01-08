@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel= "stylesheet" href="style.css">
+  <title>Family</title>
+</head>
+<style>
+
+     {
+        margin: 0;
+        font-family: "Poppins", "Times New Roman", serif;
+        background: lightyellow;
+        color: #333;
+    }
+
+  .header {
+        background: lightpink;
+        padding: 30px 0;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: darkmagenta;
+    }
+
+    .datetime {
+        font-size: 14px;
+        margin-top: 8px;
+        font-weight: 400;
+    }
+
+    nav {
+        background: #222;
+        padding: 10px 0;
+        text-align: center;
+    }
+    nav a {
+        color: hotpink;
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    nav a:hover {
+        color: limegreen;
+    }
+
+    footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+    font-size: 14px;
+} 
+
+
+   
+    /* ABOUT SECTION */
+    .about-section {
+        padding: 40px;
+        text-align: center;
+    }
+
+  .family-gallery {
+    width: 100%;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 45px; 
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.family-card {
+    background: #a7c7e7;
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px; /* kecil & comel */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+
+.family-card:hover {
+    transform: rotate(0deg) scale(1.04);
+}
+
+.family-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.family-card:hover img {
+    transform: scale(1.05);
+}
+
+.family-card p {
+    margin-top: 8px;
+    font-style: italic;
+    font-size: 14px;
+    color: #ff1a8c;
+}
+/*animation card*/
+.family-card {
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideRight 1.2s ease-out forwards;
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ================= MODAL FAMILY INFO ================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    width: 420px;
+    max-width: 90%;
+    margin: 7% auto;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    animation: zoomIn 0.4s ease;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-content h2 {
+    color: #FF69B4;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.modal-content p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #FF69B4;
+}
+
+/* animation modal */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.family-card {
+    cursor: pointer;
+}
+
+
+</style> 
+
+<body>
+
+ <div class="header">
+    Amrina's Personal Website
+    <div class="datetime" id="datetime"></div>
+</div>
+
+<nav>
+    <a href="index.html">🏡 Home</a>
+    <a href="aboutme.html">👩‍🎓 About Me</a>
+    <a href="experience.html">💼 Experience</a>
+    <a href="education.html">📚 Education</a>
+    <a href="family.html">👨‍👩‍👦‍👦 Family</a>
+    <a href="friends.html">🫂 Friends</a>
+    <a href="favourites.html">🩷 Favourites</a>
+  
+</nav>
+
+
+<div class="experience-container">
+
+
+  <div class="content">
+    <h2>❤️ THE HEART OF MY LIFE ❤️</h2>
+    </div>
+
+<section class="family-gallery">
+    <div class="family-card" onclick="openModal (' 💗FATHER💗 <br> <br> NAME: ISMAIL BIN BABA <br> AGE: 59 <br>')">
+        <img src="image/aboh1.jpg">
+        <p>MY HERO</p>
+    </div>
+
+    <div class="family-card" onclick="openModal('💗MOTHER💗 <br> <br> NAME: SALINA BINTI MOHD <br> AGE:53 <br> ') ">
+        <img src="image/mok1.jpg">
+        <p>MY HEAVEN</p>
+    </div>
+
+   <div class="family-card" onclick="openModal ('💗BROTHER💗 <br> <br>NAME: MUHAMMAD SOLEHUDEEN BIN ISMAIL <br> AGE: 25 <br>  <br> <br> 💗SISTER IN LAW💗 <br><br>  NAME: NUR SUHADA BINTI ALIAS <br> AGE: 23 <br> ') ">
+        <img src="image/abang1.jpg">
+        <p>MY FIRST BROTHER AND HIS WIFE</p>
+    </div>
+
+
+    <div class="family-card" onclick="openModal ('💗BROTHER💗 <br> <br> NAME: MUHAMMAD FADHIL BIN ISMAIL <br> AGE: 26 <br> ' ) ">
+        <img src="image/angoh2.jpg">
+        <p>MY SECOND BROTHER</p>
+    </div>
+
+  <div class="family-card" onclick="openModal ('💗BROTHER💗 <br> <br> NAME: MUHAMMAD NAIM BIN ISMAIL <br> AGE: 26 <br> ' ) ">
+        <img src="image/abgim.jpg">
+        <p>MY THIRD BROTHER</p>
+    </div>
+
+    <div class="family-card" onclick="openModal (' 💗FATHER💗 <br> <br> NAME: MUHAMMAD SHARIQ FAREEL & NUR SAFAA FAREENA  <br>')">
+        <img src="image/baby1.jpeg">
+        <p>NEPHEW & NIECE</p>
+    </div>
+
+</section>
+<div id="familyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+    </div>
+</div>
+
+    
+  <div class="content">
+    <p><em>This section is dedicated to my lovely family the people who always support and motivate me. I’m thankful for all their love, care, and sacrifices that make me who I am today ❤️ My family is my greatest source of love and support. My parents guide me with kindness and wisdom, while my siblings fill my life with laughter and joy. Together, we share countless memories, from simple everyday moments to special celebrations. They are not just my family, but also my friends and my safe haven. I feel truly blessed to have them by my side, inspiring me and reminding me of what truly matters</em></p>  
+  </div>
+
+  <footer>
+    © 2025 This Website is for educational purposes only |
+    Nur Amrina Rasyada Binti Ismail
+</footer>
+
+
+    <script>
+function openModal(title, info, img) {
+    document.getElementById("familyModal").style.display = "block";
+    document.getElementById("modalTitle").innerHTML = title;
+    document.getElementById("modalInfo").innerHTML = info;
+    document.getElementById("modalImg").src = img;
+}
+
+function closeModal() {
+    document.getElementById("familyModal").style.display = "none";
+}
+</script>
+
+<!-- DATE & TIME SCRIPT -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    const date = now.toLocaleDateString('en-MY', options);
+    const time = now.toLocaleTimeString();
+    document.getElementById('datetime').innerHTML =
+        "🕒 " + date + " | " + time;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+</script>
+
+
+<footer>
+    © 2025 This Website is for educational purposes only |
+    Nur Amrina Rasyada Binti Ismail
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Experience</title>
+
+<style>
+    body 
+       {
+        margin: 0;
+        font-family: "Poppins", "Times New Roman", serif;
+        background: lightyellow;
+        color: #333;
+    }
+
+  .header {
+        background: lightpink;
+        padding: 30px 0;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: darkmagenta;
+    }
+
+    .datetime {
+        font-size: 14px;
+        margin-top: 8px;
+        font-weight: 400;
+    }
+
+    nav {
+        background: #222;
+        padding: 10px 0;
+        text-align: center;
+    }
+    nav a {
+        color: hotpink;
+        margin: 0 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    nav a:hover {
+        color: limegreen;
+    }
+
+   
+    /* ABOUT SECTION */
+    .about-section {
+        padding: 40px;
+        text-align: center;
+    }
+
+
+.experience-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+
+.experience-section {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 90px;
+    flex-wrap: wrap;
+}
+
+
+.experience-section img {
+    width: 240px;   /* 👉 KECIL / BESAR GAMBAR DI SINI */
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    animation: fade 1.2s ease;
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.experience-text {
+    max-width: 600px;
+}
+.experience-text h2 {
+    margin-bottom: 15px;
+}
+.experience-text p {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    Amrina's Personal Website
+    <div class="datetime" id="datetime"></div>
+</div>
+
+<nav>
+    <a href="index.html">🏡 Home</a>
+    <a href="aboutme.html">👩‍🎓 About Me</a>
+    <a href="experience.html">💼 Experience</a>
+    <a href="education.html">📚 Education</a>
+    <a href="family.html">👨‍👩‍👦‍👦 Family</a>
+    <a href="friends.html">🫂 Friends</a>
+    <a href="favourites.html">🩷 Favourites</a>
+  
+</nav>
+
+<div class="experience-container">
+
+
+    <div class="experience-section">
+        <img id="internImg" src="image/intern1.jpeg">
+
+        <div class="experience-text">
+            <h2>Industrial Training Experience</h2>
+            <p>
+                During my internship, I gained valuable exposure to a professional working
+                environment. This experience helped me improve my communication skills,
+                sense of responsibility, and ability to manage tasks efficiently.
+            </p>
+        </div>
+    </div>
+
+    
+    <div class="experience-section">
+        <img id="orcImg" src="image/orc4.jpg">
+
+        <div class="experience-text">
+            <h2>Program & Event Handling Experience</h2>
+            <p>
+                I was actively involved in handling programs and events, which enhanced my
+                teamwork, leadership, and problem-solving skills. This experience also
+                increased my confidence in managing responsibilities during activities.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 This Website is for educational purposes only |
+    Nur Amrina Rasyada Binti Ismail
+</footer>
+
+<script>
+
+let internImages = [
+    "image/intern1.jpeg",
+    "image/intern2.jpeg",
+    "image/intern3.jpeg",
+    "image/intern4.jpeg"
+];
+let internIndex = 0;
+const internImg = document.getElementById("internImg");
+
+setInterval(() => {
+    internIndex = (internIndex + 1) % internImages.length;
+    internImg.src = internImages[internIndex];
+    internImg.style.animation = "none";
+    internImg.offsetHeight;
+    internImg.style.animation = "fade 1.2s ease";
+}, 3000); 
+
+let orcImages = [
+    "image/orc1.jpg",
+    "image/orc2.jpg",
+    "image/orc3.jpg",
+    "image/orc4.jpg",
+
+
+];
+let orcIndex = 0;
+const orcImg = document.getElementById("orcImg");
+
+setInterval(() => {
+    orcIndex = (orcIndex + 1) % orcImages.length;
+    orcImg.src = orcImages[orcIndex];
+    orcImg.style.animation = "none";
+    orcImg.offsetHeight;
+    orcImg.style.animation = "fade 1.2s ease";
+}, 3000); 
+</script>
+
+
+
+<!-- DATE & TIME SCRIPT -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    const date = now.toLocaleDateString('en-MY', options);
+    const time = now.toLocaleTimeString();
+    document.getElementById('datetime').innerHTML =
+        "🕒 " + date + " | " + time;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
